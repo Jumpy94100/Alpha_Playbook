@@ -13,5 +13,6 @@
     - name: Lancement VM-Tools
       service:
         name: open-vm-tools
-        state: restarted
+        state: started
+        enabled: yes
 ...
