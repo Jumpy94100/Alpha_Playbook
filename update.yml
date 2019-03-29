@@ -5,4 +5,16 @@
     - name: Hello Message
       debug:
         msg: "Hello World!"
+
+- name: Update du cache des repos + VMWare Tools
+  hosts: all
+  tasks:
+    - name: Update
+      apt:
+        update_cache: yes
+        when: ansible_distribution == 'Debian'
+    - name: Installation VM-Tools
+      apt:
+        name: Installation VM-Tools
+        when: ansible_distribution == 'Debian'
 ...
