@@ -11,6 +11,7 @@
   tasks:
     - name: Installation VM-Tools
       apt:
+        become: true
         name: open-vm-tools
         update_cache: yes
         when: ansible_distribution == 'Debian'
