@@ -9,12 +9,9 @@
 - name: Update du cache des repos + VMWare Tools
   hosts: all
   tasks:
-    - name: Update
-      apt:
-        update_cache: yes
-        when: ansible_distribution == 'Debian'
     - name: Installation VM-Tools
       apt:
-        name: Installation VM-Tools
+        name: open-vm-tools
+        update_cache: yes
         when: ansible_distribution == 'Debian'
 ...
