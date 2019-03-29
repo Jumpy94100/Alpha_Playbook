@@ -1,12 +1,7 @@
 ---
-- name: Hello World Sample
-  hosts: all
-  tasks:
-    - name: Hello Message
-      debug:
-        msg: "Hello World!"
 
 - name: Update du cache des repos + VMWare Tools
+  hosts: all
   tasks:
     - name: Update cache repo
       apt:
