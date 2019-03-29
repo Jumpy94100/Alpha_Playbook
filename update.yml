@@ -14,10 +14,10 @@
         update-cache: yes
     - name: Installation VM-Tools
       apt:
-        name: openvm-tools
+        name: open-vm-tools
         
     - name: Lancement VM-Tools
       service:
-        name: openvm-tools
+        name: open-vm-tools
         state: restarted
 ...
