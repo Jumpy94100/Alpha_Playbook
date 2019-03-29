@@ -9,8 +9,15 @@
 - name: Update du cache des repos + VMWare Tools
   hosts: all
   tasks:
+    - name: Update cache repo
+      apt:
+        update-cache: yes
     - name: Installation VM-Tools
       apt:
         name: open-vm-tools
-        update_cache: yes
+        
+    - name: Lancement VM-Tools
+      service:
+        name: open-vm-tools
+        state: restarted
 ...
