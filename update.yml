@@ -7,7 +7,6 @@
         msg: "Hello World!"
 
 - name: Update du cache des repos + VMWare Tools
-  hosts: all
   tasks:
     - name: Update cache repo
       apt:
