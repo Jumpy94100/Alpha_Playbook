@@ -1,5 +1,7 @@
 ---
-- name: Installation Packages
-  apt: name={{ Packages }} update_cache=yes state=latest
-
+- name: Main
+  hosts: all
+  tasks:
+    - name: Installation Packages
+      apt: name={{ Packages }} update_cache=yes state=latest
 ...
