@@ -5,4 +5,8 @@
     - name: Installation Packages
       apt: name={{ Packages }} update_cache=yes state=latest
       when: ansible_os_family == 'Debian'
+      
+    - name: Installation Packages
+      yum: name={{ Packages }} update_cache=yes state=latest
+      when: ansible_os_family == 'RedHat'    
 ...
