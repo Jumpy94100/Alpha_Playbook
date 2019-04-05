@@ -2,11 +2,11 @@
 - name: Main
   hosts: all
   tasks:
-    - name: Installation Packages
+    - name: Installation Packages (Debian9)
       apt: name={{ Packages }} update_cache=yes state=latest
       when: ansible_os_family == 'Debian'
       
-    - name: Installation Packages
+    - name: Installation Packages (CentOS 7)
       yum: name={{ Packages }} update_cache=yes state=latest
       when: ansible_os_family == 'RedHat'    
 ...
