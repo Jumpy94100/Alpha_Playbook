@@ -19,5 +19,5 @@
       when: Get_Security_Update_Number.stdout_lines != 0
       register: Udpate_Security_Package
 
-    - debug: Udpate_Security_Package.stdout_lines
+    - debug: var=Udpate_Security_Package.stdout_lines
 
