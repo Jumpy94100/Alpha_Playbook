@@ -1,0 +1,9 @@
+- name: Check DNS server
+  hosts: all
+
+  tasks:
+    - name: Get DNS Server
+      shell: cat /etc/resolv.conf
+      register: Check_DNS
+
+    - debug: var=Check_DNS.stdout_lines
