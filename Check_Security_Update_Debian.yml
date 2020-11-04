@@ -16,7 +16,7 @@
 
     - name: Install security update when needed
       shell: apt-get -s dist-upgrade | grep "^Inst" | grep -i security | awk -F " " {'print $2'} | sudo xargs apt-get install
-      when: Get_Security_Update_Number.stdout_lines != 0
+      when: Get_Security_Update_Number.stdout_lines != "0"
       register: Udpate_Security_Package
 
     - debug: var=Udpate_Security_Package.stdout_lines
