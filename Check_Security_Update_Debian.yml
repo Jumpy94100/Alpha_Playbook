@@ -23,6 +23,9 @@
       shell: echo "Plus de 0"
       when: Get_Security_Update_Number.stdout_lines != "0"
 
+    - name: On fait le debug si c'est plus de 0
+      shell: echo "Tout pile 0"
+      when: Get_Security_Update_Number.stdout_lines == "0"
 
 #    - debug: var=Udpate_Security_Package.stdout_lines
 
