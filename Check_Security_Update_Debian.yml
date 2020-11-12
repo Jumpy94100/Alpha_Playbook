@@ -18,6 +18,3 @@
       shell: apt-get -s dist-upgrade | grep "^Inst" | grep -i security | awk -F " " {'print $2'} | sudo xargs apt-get install
       when: "'0' not in Get_Security_Update_Number.stdout_lines"
       register: Udpate_Security_Package
-
-    - debug: var=Udpate_Security_Package.stdout_lines
-
