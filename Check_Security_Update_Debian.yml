@@ -6,7 +6,7 @@
       shell: apt-get -s dist-upgrade | grep "^Inst" | grep -i security | awk -F " " {'print $2'}
       register: Get_Security_Update_List
 
-    - debug: var=Get_Update_List.stdout_lines
+    - debug: var=Get_Security_Update_List.stdout_lines
 
     - name: Get Number of security update
       shell: apt-get -s dist-upgrade | grep "^Inst" | grep -i security | wc -l
@@ -15,4 +15,4 @@
 #    - name: Install security update when needed
 #      shell: apt-get -s dist-upgrade | grep "^Inst" | grep -i security | awk -F " " {'print $2'} | sudo xargs apt-get install
 #      when: "'0' not in Get_Security_Update_Number.stdout_lines"
-#      register: Udpate_Security_Package
+
