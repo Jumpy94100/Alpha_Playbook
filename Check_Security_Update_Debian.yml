@@ -2,19 +2,17 @@
   hosts: all
 
   tasks:
-    - name: Get number of package not updated on the host
-      shell: apt-get -s dist-upgrade | grep "^Inst" | wc -l
-      register: Get_Update_Number
-
-    - debug: var=Get_Update_Number.stdout_lines
-
     - name: List of package needed to update security
-      shell: apt-get -s dist-upgrade | grep "^Inst" | grep -i security | awk -F " " {'print $2'}
+      shell: apt-get -s dist-upgrade | grep "^Inst" | grep -i security |
       register: Get_Security_Update_List
 
-    - debug: var=Get_Security_Update_List.stdout_lines
+    - debug: var=Get_Update_List.stdout_lines
 
-    - name: Install security update when needed
-      shell: apt-get -s dist-upgrade | grep "^Inst" | grep -i security | awk -F " " {'print $2'} | sudo xargs apt-get install
-      when: "'0' not in Get_Security_Update_Number.stdout_lines"
-      register: Udpate_Security_Package
+    - name: Get Number of security update
+      shell: apt-get -s dist-upgrade | grep "^Inst" | grep -i security | wc -l
+      register: Get_Security_Update_Number
+
+#    - name: Install security update when needed
+#      shell: apt-get -s dist-upgrade | grep "^Inst" | grep -i security | awk -F " " {'print $2'} | sudo xargs apt-get install
+#      when: "'0' not in Get_Security_Update_Number.stdout_lines"
+#      register: Udpate_Security_Package
