@@ -8,11 +8,11 @@
 
     - debug: var=Get_Update_Number.stdout_lines
 
-    - name: Get number of security update not installed on the host
-      shell: apt-get -s dist-upgrade | grep "^Inst" | grep -i security | wc -l
-      register: Get_Security_Update_Number
+    - name: List of package needed to update security
+      shell: apt-get -s dist-upgrade | grep "^Inst" | grep -i security | awk -F " " {'print $2'}
+      register: Get_Security_Update_List
 
-    - debug: var=Get_Security_Update_Number.stdout_lines
+    - debug: var=Get_Security_Update_List.stdout_lines
 
     - name: Install security update when needed
       shell: apt-get -s dist-upgrade | grep "^Inst" | grep -i security | awk -F " " {'print $2'} | sudo xargs apt-get install
