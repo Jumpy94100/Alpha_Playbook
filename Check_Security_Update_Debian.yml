@@ -3,7 +3,7 @@
 
   tasks:
     - name: List of package needed to update security
-      shell: apt-get -s dist-upgrade | grep "^Inst" | grep -i security |
+      shell: apt-get -s dist-upgrade | grep "^Inst" | grep -i security | awk -F " " {'print $2'}
       register: Get_Security_Update_List
 
     - debug: var=Get_Update_List.stdout_lines
