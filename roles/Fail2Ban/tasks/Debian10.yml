@@ -1,15 +1,15 @@
 # Debian 10 task
 
-- name: [Deb 10] Update apt cache
+- name: Deb 10 -- Update apt cache
   ansible.builtin.apt:
     update_cache: yes
 
-- name: [Deb 10] Install Fail 2 Ban package
+- name: Deb 10 -- Install Fail 2 Ban package
   ansible.builtin.apt:
     name: fail2ban
     state: latest
 
-- name: [Deb 10] Change sshd conf
+- name: Deb 10 -- Change sshd conf
   ansible.builtin.blockinfile:
     path: /etc/fail2ban/jail.d/defaults-debian.conf
     insertafter: 'enabled = true'
@@ -19,7 +19,7 @@
       maxretry = 5
   notify: Restart Fail2Ban
 
-- name: [Deb 10] Add DSI LAN IP to Whitelist
+- name: Deb 10] -- Add DSI LAN IP to Whitelist
   ansible.builtin.lineinfile:
     path: /etc/fail2ban/jail.conf
     insertafter: '^#ignoreip = 127.0.0.1/8 ::1'
