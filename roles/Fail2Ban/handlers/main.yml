@@ -1,0 +1,7 @@
+---
+
+- name: Restart Fail2Ban
+  ansible.builtin.systemd:
+    name: fail2ban
+    enabled: yes
+    state: restarted

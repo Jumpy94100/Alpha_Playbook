@@ -25,10 +25,3 @@
     insertafter: '^#ignoreip = 127.0.0.1/8 ::1'
     line: 'ignoreip = {{ IP_Address }}'
   notify: Restart Fail2Ban
-
-handlers:
-  - name: Restart Fail2Ban
-    ansible.builtin.systemd:
-      name: fail2ban
-      enabled: yes
-      state: restarted
