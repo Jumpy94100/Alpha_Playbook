@@ -1,7 +1,7 @@
 ---
 
 - name: Fail 2 Ban Playbook
-  hosts: all
+  hosts: localhost
   become: yes
 
 #  vars_prompt:
