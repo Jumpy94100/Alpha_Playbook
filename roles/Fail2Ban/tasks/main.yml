@@ -1,9 +1,7 @@
 ---
 
-- name: Include Debian 9
-  ansible.builtin.include_tasks: Debian9.yml
+- include_tasks: Debian9.yml
   when: ansible_distribution == 'Debian' and ansible_distribution_major_version == '9'
 
-- name: Include Debian 10
-  ansible.builtin.include_tasks: Debian10.yml
+- include_tasks: Debian10.yml
   when: ansible_distribution == 'Debian' and ansible_distribution_major_version == '10'
