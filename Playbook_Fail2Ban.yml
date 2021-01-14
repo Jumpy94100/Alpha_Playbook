@@ -1,0 +1,8 @@
+---
+
+- name: Playbook Installation Fail 2 Debian
+  hosts: all
+  become: yes
+
+  roles:
+    - Fail2Ban
