@@ -4,10 +4,10 @@
   hosts: all
   become: yes
 
-  vars_prompt:
-    - name: IP_Address
-      prompt: IP (avec subnet) a rajouter en whitelist (Si plusieurs, a séparer par un espace ==> 192.168.1.0/24 192.168.2.0/24)
-      private: no
+#  vars_prompt:
+#    - name: IP_Address
+#      prompt: IP (avec subnet) a rajouter en whitelist (Si plusieurs, a séparer par un espace ==> 192.168.1.0/24 192.168.2.0/24)
+#      private: no
 
   tasks:
     - name: Update apt cache
