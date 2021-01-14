@@ -1,7 +1,8 @@
 ---
 
-- name: Hello World
-  hosts: localhost
+- name: Fail 2 Ban Playbook
+  hosts: all
+  become: yes
 
   vars_prompt:
     - name: IP_Address
