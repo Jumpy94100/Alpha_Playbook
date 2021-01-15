@@ -6,4 +6,4 @@
 
   tasks:
     ansible.builtin.debug:
-      msg: "Valeur de la variable Centreon_IP: {{ Centreon_IP }}"
+      msg: {{ Centreon_IP }}
