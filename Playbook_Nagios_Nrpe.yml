@@ -1,0 +1,8 @@
+---
+
+- name: Playbook Installation Nagios NRPE
+  hosts: all
+  become: yes
+
+  roles:
+    - Nagios-NRPE
