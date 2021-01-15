@@ -6,4 +6,4 @@
 
   tasks:
     ansible.builtin.debug:
-      msg: "Adresse IP: '{{ Centreon_IP }}'"
+      msg: Centreon IP is equal to {{ Centreon_IP }}
