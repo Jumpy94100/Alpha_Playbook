@@ -7,7 +7,7 @@
     - name: Check if Alpha.cfg exist
       ansible.builtin.shell:
         cmd: ls -rtl /etc/nagios/nrpe.d/
-      register: Ls_Result
+      register: Check_conf
 
     - name: Print result
-      ansible.builtin.debug: var=Ls_Result.stdout_lines
+      ansible.builtin.debug: var=Check_conf.stdout_lines
