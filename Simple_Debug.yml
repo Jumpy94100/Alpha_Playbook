@@ -4,6 +4,10 @@
   become: yes
 
   tasks:
-    - name: Debug
+    - name: Check if Alpha.cfg exist
+      ansible.builtin.shell: ls -rtl /etc/nagios/nrpe.d/
+      register: Ls_Result
+
+    - name: Print result
       ansible.builtin.debug:
-        msg: Centreon IP is equal to {{ Centreon_IP }}
+        msg: Ls_Result.stdout
