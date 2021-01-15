@@ -5,8 +5,7 @@
 
   tasks:
     - name: Check if Alpha.cfg exist
-      ansible.builtin.shell:
-        shell: ls -rtl /etc/nagios/nrpe.d/
+      ansible.builtin.shell: ls -rtl /etc/nagios/nrpe.d/
       register: Ls_Result
 
     - name: Print result
