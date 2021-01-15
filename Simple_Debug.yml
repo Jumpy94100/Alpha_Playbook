@@ -1,9 +1,9 @@
 ---
-
 - name: Simple Debug
   hosts: all
   become: yes
 
   tasks:
-    ansible.builtin.debug:
-      msg: Centreon IP is equal to {{ Centreon_IP }}
+    - name: Debug
+      ansible.builtin.debug:
+        msg: Centreon IP is equal to {{ Centreon_IP }}
