@@ -1,0 +1,9 @@
+---
+
+- name: Simple Debug
+  hosts: all
+  become: yes
+
+  tasks:
+    ansible.builtin.debug:
+      msg: "Valeur de la variable Centreon_IP: {{ Centreon_IP }}"

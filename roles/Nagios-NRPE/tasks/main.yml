@@ -1,0 +1,23 @@
+---
+
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Install Nagios NRPE package
+  ansible.builtin.apt:
+    name: nagios-nrpe-server
+    state: latest
+
+- name: Add right IP in allowed_hosts settings
+  ansible.builtin.lineinfile:
+    path: /etc/nagios/nrpe.cfg
+    regexp: "^allowed_hosts"
+    line: "allowed_hosts={{ Centreon_IP }}"
+  notify: Restart NRPE
+
+- name: Copy custom config file
+  ansible.builtin.copy:
+    src: ressources/Alpha.cfg
+    dest: /etc/nagios/nrpe.d/
+  notify: Restart NRPE

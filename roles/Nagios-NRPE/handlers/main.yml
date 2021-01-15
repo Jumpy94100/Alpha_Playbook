@@ -1,0 +1,7 @@
+---
+
+- name: Restart NRPE
+  ansible.builtin.systemd:
+    name: nagios-nrpe-server
+    enabled: yes
+    state: restarted
