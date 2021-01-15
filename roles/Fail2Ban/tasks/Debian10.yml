@@ -19,9 +19,18 @@
       maxretry = 5
   notify: Restart Fail2Ban
 
-- name: Deb 10] -- Add DSI LAN IP to Whitelist
+- name: Deb 10 -- Add {{ IP_Address }} to Whitelist
   ansible.builtin.lineinfile:
     path: /etc/fail2ban/jail.conf
     insertafter: '^#ignoreip = 127.0.0.1/8 ::1'
     line: 'ignoreip = {{ IP_Address }}'
   notify: Restart Fail2Ban
+  when: Action == "Add"
+
+- name: Deb 10 -- Delete {{ IP_Address }} to Whitelist
+  ansible.builtin.lineinfile:
+    path: /etc/fail2ban/jail.conf
+    line: 'ignoreip = {{ IP_Address }}'
+    state: absent
+  notify: Restart Fail2Ban
+  when: Action == "Delete"
