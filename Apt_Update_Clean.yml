@@ -1,0 +1,16 @@
+- name: Apt update and Clean
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Update repository
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Remove useless package dependencies
+      ansible.builtin.apt:
+        autoremove: yes
+
+    - name: Remove cache of useless package
+      ansible.builtin.apt:
+        autoclean: yes
