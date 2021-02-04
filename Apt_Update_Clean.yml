@@ -9,6 +9,8 @@
 
     - name: Get Number of security update
       ansible.builtin.shell: apt-get -s dist-upgrade | grep "^Inst" | grep -i security | wc -l
+      args:
+        warn: no
       register: Get_Security_Update_Number
 
     - name: Remove useless package dependencies
