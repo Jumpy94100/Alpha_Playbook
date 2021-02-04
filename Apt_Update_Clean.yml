@@ -7,6 +7,10 @@
       ansible.builtin.apt:
         update_cache: yes
 
+    - name: Get Number of security update
+      shell: apt-get -s dist-upgrade | grep "^Inst" | grep -i security | wc -l
+      register: Get_Security_Update_Number
+
     - name: Remove useless package dependencies
       ansible.builtin.apt:
         autoremove: yes
@@ -14,3 +18,7 @@
     - name: Remove cache of useless package
       ansible.builtin.apt:
         autoclean: yes
+
+    - name: Display number of security updates
+      ansible.builtin.debug:
+        var: Get_Security_Update_Number.stdout_lines
