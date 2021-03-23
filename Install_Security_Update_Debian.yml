@@ -16,3 +16,10 @@
       shell: apt-get -s dist-upgrade | grep "^Inst" | grep -i security | awk -F " " {'print $2'} | sudo xargs apt-get install
       when: "'0' not in Get_Security_Update_Number.stdout_lines"
 
+    - name: Remove useless package dependencies
+      ansible.builtin.apt:
+        autoremove: yes
+
+    - name: Remove cache of useless package
+      ansible.builtin.apt:
+        autoclean: yes
